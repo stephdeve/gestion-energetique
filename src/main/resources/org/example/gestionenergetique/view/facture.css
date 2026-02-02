@@ -1,0 +1,117 @@
+/* ===== BASE STYLES ===== */
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-base: #f8f9fa;
+}
+
+.transparent-scroll {
+    -fx-background-color: transparent;
+}
+
+.transparent-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ===== CONTAINER STYLES ===== */
+.invoice-container {
+    -fx-padding: 30px;
+    -fx-background-color: #f8f9fa;
+}
+
+.invoice-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 10px 0;
+}
+
+.stats-container {
+    -fx-padding: 0 0 15px 0;
+}
+
+/* ===== STAT CARD STYLES ===== */
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+    -fx-padding: 20px;
+    -fx-min-width: 200px;
+    -fx-alignment: CENTER;
+}
+
+.small-card {
+    -fx-min-width: 180px;
+    -fx-padding: 15px;
+}
+
+.stat-title {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 0 0 5px 0;
+}
+
+.stat-value {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.primary-stat {
+    -fx-text-fill: #3498db;
+}
+
+.secondary-stat {
+    -fx-text-fill: #2ecc71;
+}
+
+.tertiary-stat {
+    -fx-text-fill: #e74c3c;
+}
+
+/* ===== CHART STYLES ===== */
+.chart-container {
+    -fx-padding: 20px 0 0 0;
+}
+
+.chart-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.invoice-chart {
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+
+.invoice-chart .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.invoice-chart .chart-series-area-fill {
+    -fx-fill: linear-gradient(to bottom, #3498db, #2ecc71);
+}
+
+.invoice-chart .chart-bar {
+    -fx-bar-fill: #3498db;
+}
+
+.invoice-chart .chart-bar:hover {
+    -fx-bar-fill: #2980b9;
+}
+
+.chart-axis {
+    -fx-tick-label-fill: #7f8c8d;
+    -fx-font-size: 12px;
+}
+
+.chart-axis .axis-label {
+    -fx-text-fill: #34495e;
+    -fx-font-size: 13px;
+}
+
+/* ===== SERIES COLORS ===== */
+.default-color0.chart-bar { -fx-bar-fill: #3498db; }
+.default-color1.chart-bar { -fx-bar-fill: #2ecc71; }
+.default-color2.chart-bar { -fx-bar-fill: #e74c3c; }

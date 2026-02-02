@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.gestionenergetique.controller.LoginController"
+            stylesheets="@login.css"
+            prefHeight="600.0" prefWidth="1000.0">
+
+    <!-- Conteneur principal -->
+    <VBox alignment="CENTER" spacing="30" styleClass="login-container"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
+
+        <!-- Logo / Titre -->
+        <VBox alignment="CENTER" spacing="10">
+            <ImageView fitWidth="80" fitHeight="80">
+
+            </ImageView>
+            <Label text="Smart Energy Manager" styleClass="app-title" />
+            <Label text="Gestion intelligente de l'énergie" styleClass="app-subtitle" />
+        </VBox>
+
+        <!-- Formulaire de connexion -->
+        <VBox alignment="CENTER" spacing="20" styleClass="form-box">
+            <Label text="Connexion à votre compte" styleClass="form-title" />
+
+            <!-- Champ Email avec icône -->
+            <HBox styleClass="input-container" alignment="CENTER_LEFT">
+                <FontAwesomeIconView glyphName="USER" size="18" styleClass="input-icon" />
+                <TextField fx:id="emailField" styleClass="form-input" promptText="votre@email.com" />
+            </HBox>
+
+            <!-- Champ Mot de passe avec icône -->
+            <HBox styleClass="input-container" alignment="CENTER_LEFT">
+                <FontAwesomeIconView glyphName="LOCK" size="18" styleClass="input-icon" />
+                <PasswordField fx:id="passwordField" styleClass="form-input" promptText="••••••••" />
+            </HBox>
+
+            <!-- Message d'erreur -->
+            <Label fx:id="errorLabel" styleClass="error-message" visible="false" />
+
+            <!-- Bouton de connexion -->
+            <Button text="Se connecter" onAction="#handleLogin" styleClass="login-button" />
+
+            <!-- Lien d'inscription -->
+            <Hyperlink text="Créer un nouveau compte" onAction="#handleGoToRegister" styleClass="register-link" />
+        </VBox>
+
+        <!-- Pied de page -->
+        <Label text="© 2023 Smart Energy Manager - Tous droits réservés" styleClass="footer-text" />
+    </VBox>
+
+    <!-- Image décorative -->
+    <ImageView fitWidth="500" fitHeight="600" preserveRatio="true" styleClass="decor-image"
+               AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" />
+</AnchorPane>

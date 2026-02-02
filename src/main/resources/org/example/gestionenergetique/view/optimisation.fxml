@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.gestionenergetique.controller.OptimisationController"
+            stylesheets="@style.css"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <center>
+        <ScrollPane fitToWidth="true">
+            <VBox spacing="10" styleClass="content-box">
+                <!-- Planification-->
+                <TitledPane text="Planification Automatique" styleClass="suggestion-pane">
+                    <VBox spacing="10">
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Appareil"/>
+                            <ComboBox fx:id="comboAppareilPlanif" prefWidth="200"/>
+                            <TextField fx:id="heureOnField" promptText="HH:MM Allumage" styleClass="time-field"/>
+                            <TextField fx:id="heureOffField" promptText="HH:MM Extinction" styleClass="time-field"/>
+                            <Button text="Planifier" onAction="#onAjouterPlannifierHeure" styleClass="plan-button" />
+                        </HBox>
+                        <Label text="Configurer les Horaires ON/OFF pour chaque appareil"/>
+                        <TableView fx:id="tablePlanification">
+                            <columns>
+                                <TableColumn text="Appareil" fx:id="colNomPlanif" prefWidth="200"/>
+                                <TableColumn text="Heure ON" fx:id="colHeureOn" prefWidth="200"/>
+                                <TableColumn text="Heure OFF" fx:id="colHeureOff" prefWidth="200"/>
+                                <TableColumn text="Action" fx:id="colActionPlanif" prefWidth="200"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </TitledPane>
+
+                <!-- Detection d'inactivité -->
+                <TitledPane text="Détection d'inactivité">
+                    <VBox spacing="10">
+                        <Label text="Si un appareil reste allumé sans variation de consommation"/>
+                        <CheckBox fx:id="inactiviteCheckbox" text="Activer la détection d'inactivité"/>
+                    </VBox>
+                </TitledPane>
+
+                <!-- Priorité Energétique-->
+                <TitledPane text="Gestion des priorités">
+                    <VBox spacing="10">
+                        <Label text="Définir la priorité des appareils"/>
+                        <TableView fx:id="tablePriorite">
+                            <columns>
+                                <TableColumn text="Appareil" fx:id="colNomPriorite"/>
+                                <TableColumn text="Priorité" fx:id="colPrioriteCombo"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </TitledPane>
+
+                <!-- température capteur -->
+                <TitledPane text="Capteur Température (DHT11)">
+                    <VBox spacing="10">
+                        <Label text="Température ambiante"/>
+                        <Label fx:id="temperatureLabel" text="-- °C" style="-fx-font-size: 18;"/>
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <Label text="Port:"/>
+                            <ComboBox fx:id="portCombo" prefWidth="220"/>
+                            <Button fx:id="refreshPortsButton" text="Rafraîchir"/>
+                            <Button fx:id="connectButton" text="Connecter"/>
+                            <Label fx:id="portStatusLabel" text="Déconnecté"/>
+                        </HBox>
+                        <CheckBox fx:id="climAutoCheckbox" text="Allumage/Extinction automatique du climatiseur."/>
+                    </VBox>
+                </TitledPane>
+
+                <!-- Coupure automatique -->
+                <TitledPane text="Coupure en cas de surcharge">
+                    <VBox spacing="10">
+                        <Label text="Lors du dépassement du seuil de conqsdommation"/>
+                        <CheckBox fx:id="autoShutdownCheckbox" text="Activer la coupure automatique"/>
+                    </VBox>
+                </TitledPane>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

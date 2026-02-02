@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.PieChart?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.gestionenergetique.controller.DashboardController"
+            stylesheets="@styles.css"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="transparent-scroll">
+            <VBox spacing="20" styleClass="dashboard-container">
+                <!-- Cartes de statistiques -->
+                <HBox spacing="20" styleClass="cards-container">
+                    <VBox styleClass="metric-card">
+                        <Label text="Consommation actuelle" styleClass="card-title"/>
+                        <Label text="1.2 kW" styleClass="card-value" fx:id="labelConso"/>
+                        <!--<Label text="+0.3 kW vs hier" styleClass="card-subtext" fx:id="labelPlus"/> -->
+                        <Label text="-0.3 kW vs hier" styleClass="card-subtext" fx:id="labelDiff"/>
+                    </VBox>
+
+                    <VBox styleClass="metric-card">
+                        <Label text="Appareils actifs" styleClass="card-title"/>
+                        <Label text="5/12" styleClass="card-value" fx:id="labelStat"/>
+                        <Label text="3 en veille" styleClass="card-subtext"/>
+                    </VBox>
+
+                    <VBox styleClass="metric-card">
+                        <Label text="Température" styleClass="card-title"/>
+                        <Label fx:id="temperatureLabel" text="22.5°C" styleClass="card-value"/>
+                        <Label text="Humidité: 45%" styleClass="card-subtext"/>
+                    </VBox>
+
+
+                    <VBox styleClass="metric-card">
+                        <Label text="Consommation actuelle" styleClass="card-title"/>
+                        <Label text="1.2 kW" styleClass="card-value"/>
+                        <Label text="+0.3 kW vs hier" styleClass="card-subtext"/>
+                    </VBox>
+
+                    <VBox styleClass="metric-card">
+                        <Label text="Appareils inactifs" styleClass="card-title"/>
+                        <Label text="5/12" styleClass="card-value" fx:id="labelStatInactif"/>
+                        <Label text="3 en veille" styleClass="card-subtext"/>
+                    </VBox>
+
+                    <VBox styleClass="metric-card">
+                        <Label text="Température" styleClass="card-title"/>
+                        <Label fx:id="temperatureLabel1" text="22.5°C" styleClass="card-value"/>
+                        <Label text="Humidité: 45%" styleClass="card-subtext"/>
+                    </VBox>
+                </HBox>
+
+                <VBox styleClass="metric-card">
+                    <PieChart fx:id="pieChartAppareils"/>
+                </VBox>
+
+                <!-- Graphique principal -->
+                <VBox styleClass="chart-card">
+                    <HBox alignment="CENTER" spacing="10">
+                        <Label text="Consommation énergétique" styleClass="section-title"/>
+                        <ComboBox styleClass="time-range-combo" promptText="24 heures" fx:id="periodeComboBox" onAction="#onPeriodeChange">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="24 heures"/>
+                                    <String fx:value="7 jours"/>
+                                    <String fx:value="1 mois"/>
+                                    <String fx:value="1 an"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                    </HBox>
+                    <LineChart fx:id="mainChart" styleClass="energy-chart">
+                        <xAxis><CategoryAxis label="Temps"/></xAxis>
+                        <yAxis><NumberAxis label="kW"/></yAxis>
+                    </LineChart>
+                </VBox>
+
+                <!-- Appareils récents -->
+                <VBox styleClass="devices-card">
+                    <Label text="Appareils récemment utilisés" styleClass="section-title"/>
+                    <TableView fx:id="recentDevicesTable" styleClass="devices-table">
+                        <columns>
+                            <TableColumn text="Appareil" fx:id="colRecentDevice"/>
+                            <TableColumn text="Consommation (KWH)" fx:id="colRecentUsage"/>
+                            <TableColumn text="Durée (Min)" fx:id="colRecentDuration"/>
+                            <TableColumn text="Date/Heure" fx:id="colTimestamp"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

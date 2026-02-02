@@ -1,0 +1,113 @@
+/* ===== BASE STYLES ===== */
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-base: #f8f9fa;
+}
+
+.transparent-scroll {
+    -fx-background-color: transparent;
+}
+
+.transparent-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ===== CONTAINER STYLES ===== */
+.analysis-container {
+    -fx-padding: 25px;
+    -fx-background-color: #f8f9fa;
+}
+
+.analysis-section {
+    -fx-padding: 15px;
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.section-header {
+    -fx-padding: 0 0 10px 0;
+}
+
+.section-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.section-icon {
+    -fx-fill: #3498db;
+}
+
+/* ===== TABLE STYLES ===== */
+.analysis-table {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 3, 0, 0, 1);
+}
+
+.table-column {
+    -fx-alignment: CENTER;
+    -fx-font-size: 13px;
+    -fx-border-color: #e0e0e0;
+    -fx-padding: 10px 5px;
+}
+
+.table-column .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* ===== CHART STYLES ===== */
+.analysis-chart {
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+    -fx-padding: 10px 0;
+    -fx-pref-height: 300px;
+}
+
+.analysis-chart .chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.analysis-chart .chart-bar {
+    -fx-bar-fill: #3498db;
+}
+
+.analysis-chart .chart-bar:hover {
+    -fx-bar-fill: #2980b9;
+}
+
+.chart-axis {
+    -fx-tick-label-fill: #7f8c8d;
+    -fx-font-size: 12px;
+}
+
+.chart-axis .axis-label {
+    -fx-text-fill: #34495e;
+}
+
+/* ===== SUGGESTION LIST STYLES ===== */
+.suggestion-list {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 3, 0, 0, 1);
+    -fx-pref-height: 200px;
+}
+
+.suggestion-list .list-cell {
+    -fx-padding: 10px;
+    -fx-border-color: #f0f0f0;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.suggestion-list .list-cell:filled:hover {
+    -fx-background-color: #f0f8ff;
+}
+
+.suggestion-list .list-cell:filled:selected {
+    -fx-background-color: #e1f0fa;
+}

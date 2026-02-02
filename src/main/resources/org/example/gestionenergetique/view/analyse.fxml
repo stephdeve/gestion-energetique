@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.gestionenergetique.controller.AnalyseController"
+            stylesheets="@analyse.css"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="transparent-scroll">
+            <VBox spacing="25" alignment="TOP_CENTER" styleClass="analysis-container">
+                <!-- Section Appareils gourmands -->
+                <VBox spacing="10" styleClass="analysis-section">
+                    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="section-header">
+                        <FontAwesomeIconView glyphName="TROPHY" size="18" styleClass="section-icon"/>
+                        <Label text="Appareils les plus énergivores" styleClass="section-title"/>
+                    </HBox>
+                    <TableView fx:id="tableTopAppareils" styleClass="analysis-table">
+                        <columns>
+                            <TableColumn text="Nom" fx:id="colNomTop" styleClass="table-column" prefWidth="250"/>
+                            <TableColumn text="Consommation (kWh)" fx:id="colConsoTop" styleClass="table-column" prefWidth="200"/>
+                            <TableColumn text="Pourcentage" fx:id="colPourcentage" styleClass="table-column" prefWidth="150"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- Section Heures de pic -->
+                <VBox spacing="10" styleClass="analysis-section">
+                    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="section-header">
+                        <FontAwesomeIconView glyphName="CLOCK_ALT" size="18" styleClass="section-icon"/>
+                        <Label text="Heures de pic de consommation" styleClass="section-title"/>
+                    </HBox>
+                    <BarChart fx:id="chartHeures" styleClass="analysis-chart">
+                        <xAxis>
+                            <CategoryAxis label="Heures de la journée" styleClass="chart-axis"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Consommation (kWh)" styleClass="chart-axis"/>
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+
+                <!-- Section Suggestions -->
+                <VBox spacing="10" styleClass="analysis-section">
+                    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="section-header">
+                        <FontAwesomeIconView glyphName="LIGHTBULB" size="18" styleClass="section-icon"/>
+                        <Label text="Suggestions intelligentes" styleClass="section-title"/>
+                    </HBox>
+                    <ListView fx:id="listSuggestions" styleClass="suggestion-list"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

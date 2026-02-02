@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.gestionenergetique.controller.FactureController"
+            stylesheets="@facture.css"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="transparent-scroll">
+            <VBox spacing="25" alignment="TOP_CENTER" styleClass="invoice-container">
+                <!-- Titre -->
+                <Label text="Analyse des Factures Énergétiques" styleClass="invoice-title"/>
+
+                <!-- Cartes de statistiques -->
+                <HBox spacing="20" alignment="CENTER" styleClass="stats-container">
+                    <VBox styleClass="stat-card">
+                        <Label text="Facture Journalière" styleClass="stat-title"/>
+                        <Label fx:id="labelFactureJour" text="0.00 €" styleClass="stat-value primary-stat"/>
+                    </VBox>
+
+                    <VBox styleClass="stat-card">
+                        <Label text="Facture Mensuelle" styleClass="stat-title"/>
+                        <Label fx:id="labelFactureMois" text="0.00 €" styleClass="stat-value secondary-stat"/>
+                    </VBox>
+
+                    <VBox styleClass="stat-card">
+                        <Label text="Facture Annuelle" styleClass="stat-title"/>
+                        <Label fx:id="labelFactureAnnee" text="0.00 €" styleClass="stat-value tertiary-stat"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Cartes secondaires -->
+                <HBox spacing="20" alignment="CENTER">
+                    <VBox styleClass="stat-card small-card">
+                        <Label text="Prévision fin du Mois" styleClass="stat-title"/>
+                        <Label fx:id="labelPrevisionFinMois" text="0.00 €" styleClass="stat-value"/>
+                    </VBox>
+
+                    <VBox styleClass="stat-card small-card">
+                        <Label text="Mois précédent" styleClass="stat-title"/>
+                        <Label fx:id="labelMoisPrecedent" text="0.00 €" styleClass="stat-value"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Graphique -->
+                <VBox spacing="10" styleClass="chart-container">
+                    <Label text="Comparaison des Factures" styleClass="chart-title"/>
+                    <BarChart fx:id="barChartFacture" styleClass="invoice-chart" legendVisible="false"
+                              prefHeight="350" prefWidth="750">
+                        <xAxis>
+                            <CategoryAxis label="Période" styleClass="chart-axis"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Montant (€)" styleClass="chart-axis"/>
+                        </yAxis>
+                    </BarChart>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

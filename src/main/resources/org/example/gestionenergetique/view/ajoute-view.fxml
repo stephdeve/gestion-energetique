@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+<?import java.lang.String?>
+<VBox xmlns="http://javafx.com/javafx/18"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.gestionenergetique.controller.AjouteController"
+      alignment="CENTER"
+      spacing="20"
+      styleClass="device-form-container"
+      stylesheets="@add-device.css"
+      prefHeight="550.0" prefWidth="550.0">
+
+    <!-- En-tête avec icône -->
+    <VBox alignment="CENTER" spacing="10" styleClass="form-header">
+        <ImageView fitWidth="80" fitHeight="80" styleClass="form-icon">
+           <!-- <Image url="@/images/add-device-icon.png" /> -->
+        </ImageView>
+        <Label text="Ajouter un nouvel appareil" styleClass="form-main-title" />
+        <Label text="Renseignez les informations de l'appareil" styleClass="form-sub-title" />
+    </VBox>
+
+    <!-- Formulaire -->
+    <VBox alignment="CENTER_LEFT" spacing="20" styleClass="form-content">
+        <!-- Champ Nom -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Nom de l'appareil" styleClass="form-label" />
+            <HBox styleClass="input-field">
+                <FontAwesomeIconView glyphName="LIGHTBULB_ALT" size="18" styleClass="field-icon" />
+                <TextField fx:id="nomField" styleClass="form-textfield" promptText="Ex: Réfrigérateur" />
+            </HBox>
+        </VBox>
+
+        <!-- Champ Puissance -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Puissance (kW)" styleClass="form-label" />
+            <HBox styleClass="input-field">
+                <FontAwesomeIconView glyphName="BOLT" size="18" styleClass="field-icon" />
+                <TextField fx:id="puissanceField" styleClass="form-textfield" promptText="Ex: 0.15" />
+            </HBox>
+        </VBox>
+
+        <!-- Champ Pièce -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Pièce" styleClass="form-label" />
+            <HBox styleClass="input-field">
+                <FontAwesomeIconView glyphName="HOME" size="18" styleClass="field-icon" />
+                <ComboBox fx:id="pieceCombo" styleClass="form-combobox">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Salon"/>
+                            <String fx:value="Chambre"/>
+                            <String fx:value="Cuisine"/>
+                            <String fx:value="Salle de bain"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+        </VBox>
+
+        <!-- Champ Type -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Type" styleClass="form-label" />
+            <HBox styleClass="input-field">
+                <FontAwesomeIconView glyphName="TAG" size="18" styleClass="field-icon" />
+                <ComboBox fx:id="typeCombo" styleClass="form-combobox">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Chauffage"/>
+                            <String fx:value="Lumière"/>
+                            <String fx:value="Informatique"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+        </VBox>
+
+        <!-- Champ Priorité -->
+        <VBox spacing="5" styleClass="form-group">
+            <Label text="Priorité" styleClass="form-label" />
+            <HBox styleClass="input-field">
+                <FontAwesomeIconView glyphName="FLAG" size="18" styleClass="field-icon" />
+                <ComboBox fx:id="prioriteCombo" styleClass="form-combobox">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Haute"/>
+                            <String fx:value="Moyenne"/>
+                            <String fx:value="Faible"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+        </VBox>
+
+        <!-- Bouton Ajouter -->
+        <Button text="AJOUTER L'APPAREIL" onAction="#onAjouter" styleClass="submit-button" />
+    </VBox>
+
+    <!-- Information supplémentaire -->
+    <Label text="* La puissance moyenne d'un réfrigérateur est de 150W (0.15kW)" styleClass="form-hint" />
+</VBox>

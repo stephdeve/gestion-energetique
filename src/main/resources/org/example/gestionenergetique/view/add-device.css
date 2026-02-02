@@ -1,0 +1,125 @@
+/* ===== BASE STYLES ===== */
+.device-form-container {
+    -fx-background-color: #ffffff;
+    -fx-padding: 30px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);
+}
+
+/* ===== HEADER STYLES ===== */
+.form-header {
+    -fx-padding: 0 0 20px 0;
+}
+
+.form-icon {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.form-main-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.form-sub-title {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 14px;
+}
+
+/* ===== FORM CONTENT ===== */
+.form-content {
+    -fx-padding: 0 40px;
+}
+
+.form-group {
+    -fx-spacing: 8px;
+}
+
+.form-label {
+    -fx-text-fill: #34495e;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+/* ===== INPUT FIELDS ===== */
+.input-field {
+    -fx-spacing: 12px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.field-icon {
+    -fx-fill: #3498db;
+}
+
+.form-textfield {
+    -fx-pref-height: 42px;
+    -fx-pref-width: 350px;
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-padding: 0 15px;
+    -fx-font-size: 14px;
+}
+
+.form-textfield:focused {
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(three-pass-box, rgba(52,152,219,0.2), 0, 0, 0, 2px;
+}
+
+.form-combobox {
+    -fx-pref-height: 42px;
+    -fx-pref-width: 350px;
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-font-size: 14px;
+}
+
+.form-combobox .list-cell {
+    -fx-background-color: #f8f9fa;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 10px 15px;
+}
+
+.form-combobox .arrow-button {
+    -fx-background-color: #e0e0e0;
+    -fx-background-radius: 0 6px 6px 0;
+}
+
+.form-combobox .arrow {
+    -fx-background-color: #7f8c8d;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.submit-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 14px 30px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.submit-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.submit-button:pressed {
+    -fx-background-color: #1a5276;
+}
+
+/* ===== HINT TEXT ===== */
+.form-hint {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+    -fx-padding: 20px 0 0 0;
+}

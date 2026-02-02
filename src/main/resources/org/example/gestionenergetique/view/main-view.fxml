@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.CheckBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<BorderPane xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.gestionenergetique.controller.MainController"
+            stylesheets="@style.css"
+            prefHeight="700" prefWidth="1200">
+
+    <!-- Top: Header avec titre et indicateurs -->
+    <top>
+        <VBox styleClass="header">
+            <HBox alignment="CENTER" spacing="15" styleClass="header-box">
+                <MaterialDesignIconView glyphName="LIGHTNING_BOLT" size="25" glyphStyle="-fx-fill: #ffc107;"/>
+                <Label text="Smart Energy Manager" styleClass="header-title"/>
+                <VBox spacing="2">
+                    <HBox spacing="10">
+                        <Label fx:id="nomUserlabel" styleClass="user-info"/>
+                        <Label fx:id="roleUserLabel" styleClass="user-info"/>
+                    </HBox>
+                </VBox>
+
+                <HBox spacing="15" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                    <VBox alignment="CENTER" spacing="5" styleClass="consumption-box">
+                        <Label text="Consommation Totale" styleClass="indicator-label"/>
+                        <Label fx:id="totalConsommationLabel" text="0.0 kWh" styleClass="value-label"/>
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="5" styleClass="savings-box">
+                        <Label text="Économies" styleClass="indicator-label"/>
+                        <Label fx:id="savingsLabel" text="0.0 €" styleClass="value-label-savings"/>
+                    </VBox>
+
+                    <Separator orientation="VERTICAL" styleClass="vertical-separator"/>
+
+                    <VBox spacing="5" styleClass="settings-box">
+                        <HBox spacing="5" alignment="CENTER">
+                            <Label text="Seuil max (KW):" styleClass="label-seuil"/>
+                            <TextField fx:id="seuilField" promptText="ex: 3.0" styleClass="value-label-seuil"/>
+                            <Button text="Appliquer" onAction="#onModifierSeuil" styleClass="apply-button" />
+                        </HBox>
+
+                        <HBox spacing="5" alignment="CENTER">
+                            <TextField fx:id="heureOnField" promptText="HH:MM Allumage" styleClass="time-field"/>
+                            <TextField fx:id="heureOffField" promptText="HH:MM Extinction" styleClass="time-field"/>
+                            <Button text="Planifier" onAction="#onPlannifierHeure" styleClass="plan-button" />
+                        </HBox>
+                    </VBox>
+
+                    <Label fx:id="labelAlert" text="" styleClass="alert-indicator"/>
+                </HBox>
+            </HBox>
+            <Separator styleClass="header-separator"/>
+        </VBox>
+    </top>
+
+    <!-- Centre: Contenu principal avec onglets -->
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE" styleClass="main-tab-pane">
+            <!-- Onglet Dashboard -->
+            <Tab text="Tableau de bord" styleClass="toolbar-button">
+                <graphic>
+                    <MaterialDesignIconView glyphName="HOME" size="20" glyphStyle="-fx-fill: #ffc107;"/>
+                </graphic>
+                <fx:include source="dashboard-principal.fxml"/>
+            </Tab>
+            <!-- Onglet Appareils -->
+            <Tab text="Gestion des Appareils" styleClass="toolbar-button">
+                <graphic>
+                    <MaterialDesignIconView glyphName="FLASH_AUTO" size="20" glyphStyle="-fx-fill: #ffc107;"/>
+                </graphic>
+                <ScrollPane fitToWidth="true" styleClass="transparent-scroll">
+                    <VBox spacing="15" styleClass="content-box">
+                        <ToolBar styleClass="toolbar">
+
+                            <Button onAction="#onAjouter" styleClass="icon-button" text="Ajouter">
+                                <graphic>
+                                    <MaterialDesignIconView glyphName="PLUS" size="20"/>
+                                </graphic>
+                            </Button>
+
+                            <Button onAction="#onAllumer" styleClass="icon-button" text="Allumer">
+                                <graphic>
+                                    <MaterialDesignIconView glyphName="LIGHTBULB" size="20" glyphStyle="-fx-fill: #ffc107;"/>
+                                </graphic>
+                            </Button>
+
+                            <Button onAction="#onEteindre" styleClass="icon-button" text="Éteindre">
+                                <graphic>
+                                    <MaterialDesignIconView glyphName="POWER_PLUG_OFF" size="20" glyphStyle="-fx-fill: #dc3545;"/>
+                                </graphic>
+                            </Button>
+
+                            <Button onAction="#onModifier" styleClass="icon-button" text="Modifier">
+                                <graphic>
+                                    <MaterialDesignIconView glyphName="PENCIL" size="20" glyphStyle="-fx-fill: #28a745;"/>
+                                </graphic>
+                            </Button>
+
+                            <Button onAction="#onSupprimer" styleClass="icon-button" text="Supprimer">
+                                <graphic>
+                                    <MaterialDesignIconView glyphName="DELETE" size="20" glyphStyle="-fx-fill: #dc3545;"/>
+                                </graphic>
+                            </Button>
+                        </ToolBar>
+
+                        <TableView fx:id="tableAppareils" styleClass="device-table">
+                            <columns>
+                                <TableColumn text="Nom" fx:id="colNom" styleClass="table-column" prefWidth="200"/>
+                                <TableColumn text="État" fx:id="colEtat" styleClass="table-column" prefWidth="100">
+                                    <graphic>
+                                        <MaterialDesignIconView glyphName="POWER" size="16" styleClass="column-icon"/>
+                                    </graphic>
+                                </TableColumn>
+                                <TableColumn text="Puissance (W)" fx:id="colPuissance" styleClass="table-column" prefWidth="120">
+                                    <graphic>
+                                        <MaterialDesignIconView glyphName="FLASH" size="16" styleClass="column-icon"/>
+                                    </graphic>
+                                </TableColumn>
+                                <TableColumn text="Consommation (kWh)" fx:id="colConso" styleClass="table-column" prefWidth="150">
+                                    <graphic>
+                                        <MaterialDesignIconView glyphName="CHART_LINE" size="16" styleClass="column-icon"/>
+                                    </graphic>
+                                </TableColumn>
+                                <TableColumn text="Durée" fx:id="colDuree" styleClass="table-column" prefWidth="120">
+                                    <graphic>
+                                        <MaterialDesignIconView glyphName="TIMER" size="16" styleClass="column-icon"/>
+                                    </graphic>
+                                </TableColumn>
+                                <TableColumn text="Actions" styleClass="table-column" prefWidth="150">
+                                    <graphic>
+                                        <MaterialDesignIconView glyphName="COG" size="16" styleClass="column-icon"/>
+                                    </graphic>
+                                </TableColumn>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <!-- Onglet Statistiques -->
+            <Tab text="Analyse Énergétique" styleClass="toolbar-button">
+                <graphic>
+                    <MaterialDesignIconView glyphName="CHART_BAR" size="20" glyphStyle="-fx-fill: #ffc107;"/>
+                </graphic>
+                <SplitPane dividerPositions="0.33, 0.66" styleClass="chart-split-pane">
+                    <VBox spacing="10" styleClass="chart-container">
+                        <HBox alignment="CENTER" spacing="10" styleClass="chart-header">
+                            <MaterialDesignIconView glyphName="CHART_LINE" size="20" styleClass="chart-icon"/>
+                            <Label text="Consommation Journalière" styleClass="chart-title"/>
+                        </HBox>
+                        <LineChart fx:id="dailyChart" styleClass="energy-chart">
+                            <xAxis>
+                                <CategoryAxis label="Heures" styleClass="chart-axis"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="kWh" styleClass="chart-axis"/>
+                            </yAxis>
+                        </LineChart>
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="chart-container">
+                        <HBox alignment="CENTER" spacing="10" styleClass="chart-header">
+                            <MaterialDesignIconView glyphName="CHART_BAR" size="20" styleClass="chart-icon"/>
+                            <Label text="Consommation Mensuelle" styleClass="chart-title"/>
+                        </HBox>
+                        <BarChart fx:id="monthlyChart" styleClass="energy-chart">
+                            <xAxis>
+                                <CategoryAxis label="Jours" styleClass="chart-axis"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="kWh" styleClass="chart-axis"/>
+                            </yAxis>
+                        </BarChart>
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="chart-container">
+                        <HBox alignment="CENTER" spacing="10" styleClass="chart-header">
+                            <MaterialDesignIconView glyphName="CHART_AREASPLINE" size="20" styleClass="chart-icon"/>
+                            <Label text="Comparaison Annuelle" styleClass="chart-title"/>
+                        </HBox>
+                        <LineChart fx:id="annualyChart" styleClass="energy-chart">
+                            <xAxis>
+                                <CategoryAxis label="Mois" styleClass="chart-axis"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="kWh" styleClass="chart-axis"/>
+                            </yAxis>
+                        </LineChart>
+                    </VBox>
+                </SplitPane>
+            </Tab>
+
+            <!-- Onglet Optimisation -->
+            <Tab text="Optimisation Energétique" styleClass="toolbar-button">
+                <graphic>
+                    <MaterialDesignIconView glyphName="FISH" size="20" glyphStyle="-fx-fill: #ffc107;"/>
+                </graphic>
+                <fx:include source="optimisation.fxml"/>
+            </Tab>
+
+            <!-- Estimation facture -->
+            <Tab text="Estimation Facture" styleClass="toolbar-button" fx:id="tabFacture">
+                <graphic>
+                    <MaterialDesignIconView glyphName="GOOGLE_ANALYTICS" size="20" glyphStyle="-fx-fill: #ffc107;"/>
+                </graphic>
+                <fx:include source="facture.fxml"/>
+            </Tab>
+
+            <!-- Analyse intelligente -->
+            <Tab text="Analyse Intelligente" styleClass="toolbar-button">
+                <graphic>
+                    <MaterialDesignIconView glyphName="GOOGLE_ANALYTICS" size="20" glyphStyle="-fx-fill: #ffc107;"/>
+                </graphic>
+                <fx:include source="analyse.fxml"/>
+            </Tab>
+            <!-- Onglet Historique -->
+            <Tab text="Historique" styleClass="toolbar-button">
+                <graphic>
+                    <MaterialDesignIconView glyphName="GOOGLE_ANALYTICS" size="20" glyphStyle="-fx-fill: #ffc107;"/>
+                </graphic>
+                <VBox spacing="15" styleClass="history-container">
+                    <HBox spacing="10" alignment="CENTER_LEFT" styleClass="history-controls">
+                        <Label text="Filtrer par date:" styleClass="filter-label"/>
+                        <DatePicker fx:id="datePicker" styleClass="history-datepicker"/>
+                        <ComboBox fx:id="comboTypeVue" styleClass="history-combo">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Journalière"/>
+                                    <String fx:value="Mensuelle"/>
+                                    <String fx:value="Annuelle"/>
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <Button text="Afficher" onAction="#onAfficherHistorique" styleClass="history-button"/>
+                    </HBox>
+
+                    <TableView fx:id="tableHistorique" styleClass="history-table">
+                        <columns>
+                            <TableColumn fx:id="colNomAppareil" text="Appareil" styleClass="history-column"/>
+                            <TableColumn fx:id="colDureeAppareil" text="Durée (min)" styleClass="history-column"/>
+                            <TableColumn fx:id="colConsoAppareil" text="Consommation (KWh)" styleClass="history-column"/>
+                            <TableColumn fx:id="colDateAppareil" text="Date/Heure" styleClass="history-column"/>
+                        </columns>
+                    </TableView>
+
+                    <LineChart fx:id="chartHistorique" styleClass="chart-title" title="Graphique de consommation">
+                        <xAxis>
+                            <CategoryAxis label="Période" styleClass="chart-axis"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Consommation (KWh)" styleClass="chart-axis"/>
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+
+    <!-- Bas: Notifications et statut -->
+    <bottom>
+        <VBox styleClass="footer">
+            <TitledPane text="Alertes et Notifications" styleClass="alert-pane" animated="false">
+                <graphic>
+                    <MaterialDesignIconView glyphName="ALERT" size="18" style="-fx-fill: white;"/>
+                </graphic>
+                <ScrollPane fitToWidth="true" styleClass="transparent-scroll">
+                    <VBox fx:id="alertsContainer" spacing="8" styleClass="alert-content"/>
+                </ScrollPane>
+                <Button text="Historique des Alertes" onAction="#onAfficheHistorique" styleClass="alert-history-button"/>
+            </TitledPane>
+
+            <HBox styleClass="status-bar">
+                <MaterialDesignIconView fx:id="statusIcon" glyphName="INFORMATION" styleClass="status-icon"/>
+                <Label fx:id="statusLabel" text="Système prêt" styleClass="status-text"/>
+                <Label fx:id="etatLabel" styleClass="status-indicator-connected"/>
+                <Button text="Déconnexion" onAction="#handleLogout" styleClass="logout-button" visible="false" fx:id="deconnexion"/>
+                <HBox HBox.hgrow="ALWAYS"/>
+                <MaterialDesignIconView glyphName="WIFI" size="16" styleClass="status-icon"/>
+                <Label text="ESP32:" styleClass="status-text"/>
+                <Label fx:id="espStatusLabel" text="Connecté" styleClass="status-indicator-connected"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

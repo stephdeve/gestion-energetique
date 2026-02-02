@@ -1,0 +1,227 @@
+
+/* Palette de couleurs inspirée de Home Assistant */
+.root {
+    -ha-primary: #03A9F4;
+    -ha-secondary: #607D8B;
+    -ha-accent: #FF9800;
+    -ha-background: #F5F5F5;
+    -ha-card: #FFFFFF;
+    -ha-text: #212121;
+    -ha-text-secondary: #757575;
+    -ha-divider: #E0E0E0;
+    -ha-error: #F44336;
+    -ha-success: #4CAF50;
+    -ha-warning: #FFC107;
+}
+
+/* Styles de base */
+.app-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -ha-text;
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -ha-text;
+    -fx-padding: 0 0 10px 0;
+}
+
+/* En-tête */
+.header {
+    -fx-background-color: -ha-primary;
+    -fx-padding: 15px 25px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 0, 2, 0, 0);
+}
+
+.header-icon {
+    -fx-fill: white;
+    -fx-icon-size: 32px;
+}
+
+.metric-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: rgba(255,255,255,0.7);
+}
+
+.metric-value {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.metric-value-savings {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -ha-success;
+}
+
+/* Onglets */
+.main-tab-pane {
+    -fx-background-color: transparent;
+    -fx-tab-min-height: 48px;
+}
+
+.main-tab-pane .tab-header-area {
+    -fx-background-color: -ha-background;
+    -fx-padding: 0 20px;
+}
+
+.main-tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-padding: 0 20px;
+    -fx-font-size: 14px;
+    -fx-text-fill: -ha-text-secondary;
+}
+
+.main-tab-pane .tab:selected {
+    -fx-text-fill: -ha-primary;
+    -fx-font-weight: bold;
+}
+
+.main-tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+/* Cartes */
+.dashboard-container {
+    -fx-padding: 20px;
+    -fx-background-color: -ha-background;
+}
+
+.metric-card, .chart-card, .devices-card {
+    -fx-background-color: -ha-card;
+    -fx-background-radius: 4px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 0, 2, 0, 0);
+}
+
+.metric-card {
+    -fx-pref-width: 200px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.card-title {
+    -fx-font-size: 13px;
+    -fx-text-fill: -ha-text-secondary;
+}
+
+.card-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -ha-text;
+}
+
+.card-subtext {
+    -fx-font-size: 12px;
+    -fx-text-fill: -ha-text-secondary;
+}
+
+/* Tableaux */
+.devices-table, .history-table {
+    -fx-background-color: -ha-card;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 0, 2, 0, 0);
+}
+
+.table-column {
+    -fx-alignment: CENTER;
+    -fx-font-size: 13px;
+}
+
+.devices-table .table-row-cell:even {
+    -fx-background-color: #FAFAFA;
+}
+
+/* Boutons */
+.icon-button {
+    -fx-background-color: -ha-primary;
+    -fx-text-fill: white;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 12px;
+    -fx-graphic-text-gap: 8px;
+}
+
+.flat-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -ha-primary;
+    -fx-padding: 8px 12px;
+}
+
+.flat-button:hover {
+    -fx-background-color: rgba(3, 169, 244, 0.1);
+}
+
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-padding: 5px 10px;
+}
+
+/* Champs de saisie */
+.search-field, .small-input, .time-input {
+    -fx-background-color: white;
+    -fx-border-color: -ha-divider;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-padding: 8px;
+}
+
+/* Graphiques */
+.energy-chart {
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+
+.chart-series-line {
+    -fx-stroke: -ha-primary;
+    -fx-stroke-width: 2px;
+}
+
+/* Notifications */
+.notifications-pane {
+    -fx-background-color: -ha-card;
+    -fx-border-color: -ha-divider;
+    -fx-border-width: 1px 0 0 0;
+    -fx-padding: 0;
+}
+
+.notifications-header {
+    -fx-padding: 10px 15px;
+    -fx-background-color: #FAFAFA;
+}
+
+.notifications-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.notifications-list {
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+}
+
+.status-indicator {
+    -fx-font-size: 12px;
+    -fx-text-fill: -ha-success;
+}
+
+/* Animation pour les alertes */
+@keyframes pulse {
+    0% { -fx-opacity: 1; }
+    50% { -fx-opacity: 0.7; }
+    100% { -fx-opacity: 1; }
+}
+
+.alert-notification {
+    -fx-background-color: #FFF3E0;
+    -fx-border-color: -ha-warning;
+    -fx-border-width: 0 0 0 3px;
+    -fx-padding: 10px;
+    animation: pulse 2s infinite;
+}

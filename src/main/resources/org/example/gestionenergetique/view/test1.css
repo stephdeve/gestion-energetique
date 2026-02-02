@@ -1,0 +1,516 @@
+/* ===== ROOT & GLOBAL STYLES ===== */
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-base: #f8f9fa;
+    -fx-background: #f8f9fa;
+    -fx-accent: #4CAF50;
+    -fx-focus-color: #4CAF50;
+    -fx-light-text-color: #ffffff;
+    -fx-dark-text-color: #212529;
+}
+
+/* ===== HEADER STYLES ===== */
+.header-container {
+    -fx-background-color: #343a40;
+    -fx-padding: 10px 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.header-content {
+    -fx-padding: 5px 0;
+}
+
+.header-icon {
+    -fx-fill: #ffc107;
+}
+
+.header-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.user-info-container {
+    -fx-padding: 0 15px;
+}
+
+.user-name {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.user-role {
+    -fx-text-fill: #adb5bd;
+    -fx-font-size: 12px;
+}
+
+.metrics-container {
+    -fx-padding: 0 10px;
+}
+
+.metric-box {
+    -fx-padding: 8px 12px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+.consumption-metric {
+    -fx-background-color: rgba(13, 110, 253, 0.1);
+    -fx-border-color: rgba(13, 110, 253, 0.3);
+}
+
+.savings-metric {
+    -fx-background-color: rgba(25, 135, 84, 0.1);
+    -fx-border-color: rgba(25, 135, 84, 0.3);
+}
+
+.metric-label {
+    -fx-text-fill: #6c757d;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-transform: uppercase;
+}
+
+.metric-value {
+    -fx-text-fill: #212529;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.vertical-separator {
+    -fx-padding: 0 10px;
+}
+
+.settings-container {
+    -fx-padding: 0 10px;
+}
+
+.setting-label {
+    -fx-text-fill: #adb5bd;
+    -fx-font-size: 12px;
+}
+
+.setting-input {
+    -fx-pref-width: 60px;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-border-color: #ced4da;
+}
+
+.time-input {
+    -fx-pref-width: 100px;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-border-color: #ced4da;
+}
+
+.setting-button, .time-button {
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-font-size: 12px;
+    -fx-padding: 3px 8px;
+}
+
+.setting-button {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+}
+
+.time-button {
+    -fx-background-color: #0d6efd;
+    -fx-text-fill: white;
+}
+
+.alert-indicator {
+    -fx-text-fill: #dc3545;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.header-separator {
+    -fx-padding: 5px 0 0 0;
+}
+
+/* ===== TAB PANE STYLES ===== */
+.main-tab-pane {
+    -fx-background-color: transparent;
+    -fx-tab-min-width: 120px;
+    -fx-tab-max-width: 200px;
+}
+
+.main-tab-pane .tab-header-area {
+    -fx-background-color: #343a40;
+}
+
+.main-tab-pane .tab-header-background {
+    -fx-background-color: #343a40;
+}
+
+.main-tab-pane .tab {
+    -fx-background-color: #495057;
+    -fx-background-insets: 0 1 0 1;
+    -fx-background-radius: 5px 5px 0 0;
+    -fx-padding: 5px 15px;
+}
+
+.main-tab-pane .tab:selected {
+    -fx-background-color: #f8f9fa;
+}
+
+.main-tab-pane .tab .tab-label {
+    -fx-text-fill: #adb5bd;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.main-tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #212529;
+}
+
+.tab-icon {
+    -fx-fill: #adb5bd;
+}
+
+.main-tab-pane .tab:selected .tab-icon {
+    -fx-fill: #ffc107;
+}
+
+/* ===== CONTENT STYLES ===== */
+.content-container {
+    -fx-padding: 15px;
+    -fx-background-color: #f8f9fa;
+}
+
+.action-toolbar {
+    -fx-background-color: #e9ecef;
+    -fx-padding: 8px;
+    -fx-spacing: 5px;
+    -fx-background-radius: 5px;
+}
+
+.action-button {
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 10px;
+    -fx-text-fill: white;
+}
+
+.add-button {
+    -fx-background-color: #0d6efd;
+}
+
+.power-on-button {
+    -fx-background-color: #198754;
+}
+
+.power-off-button {
+    -fx-background-color: #dc3545;
+}
+
+.edit-button {
+    -fx-background-color: #ffc107;
+    -fx-text-fill: #212529;
+}
+
+.delete-button {
+    -fx-background-color: #6c757d;
+}
+
+.button-icon {
+    -fx-fill: white;
+}
+
+.edit-button .button-icon {
+    -fx-fill: #212529;
+}
+
+/* ===== TABLE STYLES ===== */
+.device-table, .history-table, .auto-table, .priority-table {
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+.table-column {
+    -fx-alignment: CENTER;
+    -fx-font-size: 13px;
+    -fx-border-color: #dee2e6;
+    -fx-padding: 8px 5px;
+}
+
+.column-icon {
+    -fx-fill: #6c757d;
+}
+
+/* ===== CHART STYLES ===== */
+.chart-split-pane {
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 10px;
+}
+
+.chart-panel {
+    -fx-padding: 10px;
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+.chart-header {
+    -fx-padding: 5px;
+    -fx-background-color: #f8f9fa;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.chart-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+}
+
+.chart-icon {
+    -fx-fill: #6c757d;
+}
+
+.energy-chart, .history-chart {
+    -fx-legend-visible: false;
+    -fx-background-color: transparent;
+}
+
+.chart-axis {
+    -fx-tick-label-fill: #6c757d;
+    -fx-font-size: 11px;
+}
+
+/* ===== OPTIMIZATION PANEL STYLES ===== */
+.optimization-scroll {
+    -fx-background-color: transparent;
+}
+
+.optimization-container {
+    -fx-padding: 15px;
+    -fx-background-color: #f8f9fa;
+}
+
+.suggestion-panel, .comparison-panel, .bill-panel,
+.auto-panel, .inactivity-panel, .priority-panel,
+.sensor-panel, .shutdown-panel {
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);
+}
+
+.suggestion-panel .title, .comparison-panel .title,
+.bill-panel .title, .auto-panel .title,
+.inactivity-panel .title, .priority-panel .title,
+.sensor-panel .title, .shutdown-panel .title {
+    -fx-background-color: #343a40;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 10px;
+}
+
+.panel-icon {
+    -fx-fill: white;
+}
+
+.panel-content {
+    -fx-padding: 10px;
+}
+
+.panel-description {
+    -fx-text-fill: #6c757d;
+    -fx-font-size: 13px;
+    -fx-wrap-text: true;
+}
+
+.analysis-button, .bill-button {
+    -fx-background-color: #0d6efd;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 10px;
+}
+
+.bill-label {
+    -fx-text-fill: #495057;
+    -fx-font-size: 13px;
+}
+
+.bill-input {
+    -fx-pref-width: 100px;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-border-color: #ced4da;
+}
+
+.bill-result {
+    -fx-text-fill: #198754;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.comparison-list {
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.inactivity-checkbox, .shutdown-checkbox, .sensor-checkbox {
+    -fx-text-fill: #495057;
+    -fx-font-size: 13px;
+}
+
+.sensor-label {
+    -fx-text-fill: #495057;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.sensor-value {
+    -fx-text-fill: #0d6efd;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* ===== HISTORY STYLES ===== */
+.history-container {
+    -fx-padding: 15px;
+    -fx-background-color: #f8f9fa;
+}
+
+.history-controls {
+    -fx-padding: 5px 0 10px 0;
+}
+
+.filter-label {
+    -fx-text-fill: #495057;
+    -fx-font-size: 13px;
+}
+
+.history-datepicker {
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-border-color: #ced4da;
+}
+
+.history-combo {
+    -fx-pref-width: 120px;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-border-color: #ced4da;
+}
+
+.history-button {
+    -fx-background-color: #0d6efd;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 15px;
+}
+
+.history-column {
+    -fx-alignment: CENTER;
+    -fx-font-size: 13px;
+    -fx-border-color: #dee2e6;
+    -fx-padding: 8px 5px;
+}
+
+/* ===== FOOTER STYLES ===== */
+.footer-container {
+    -fx-background-color: #343a40;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, -2);
+}
+
+.alert-panel {
+    -fx-background-color: #495057;
+    -fx-border-color: #495057;
+    -fx-text-fill: white;
+}
+
+.alert-panel .title {
+    -fx-background-color: #495057;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 10px;
+}
+
+.alert-scroll {
+    -fx-background-color: #495057;
+    -fx-padding: 0;
+    -fx-fit-to-width: true;
+}
+
+.alert-content {
+    -fx-padding: 10px;
+    -fx-background-color: #495057;
+}
+
+.alert-history-button {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+    -fx-background-radius: 0 0 5px 5px;
+    -fx-border-radius: 0 0 5px 5px;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 15px;
+}
+
+.status-bar {
+    -fx-background-color: #495057;
+    -fx-padding: 5px 10px;
+    -fx-spacing: 10px;
+}
+
+.status-icon {
+    -fx-fill: #adb5bd;
+    -glyph-size: 16px;
+}
+
+.status-text {
+    -fx-text-fill: #adb5bd;
+    -fx-font-size: 12px;
+}
+
+.status-indicator {
+    -fx-text-fill: #28a745;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 2px 8px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-color: rgba(40, 167, 69, 0.1);
+}
+
+.logout-button {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 3px;
+    -fx-font-size: 12px;
+    -fx-padding: 3px 10px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.transparent-scroll {
+    -fx-background-color: transparent;
+}
+
+.transparent-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.transparent-scroll .content {
+    -fx-background-color: transparent;
+}

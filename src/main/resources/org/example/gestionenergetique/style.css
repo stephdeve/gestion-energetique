@@ -1,0 +1,418 @@
+/* Palette de couleurs */
+.root {
+    -fx-primary-color: #2C3E50;
+    -fx-secondary-color: #3498DB;
+    -fx-accent-color: #2ECC71;
+    -fx-warning-color: #E74C3C;
+    -fx-light-color: #ECF0F1;
+    -fx-dark-color: #34495E;
+}
+
+/* En-tête */
+.header {
+    -fx-background-color: -fx-primary-color;
+    -fx-padding: 0;
+}
+
+.header-box {
+    -fx-padding: 15px;
+    -fx-background-color: linear-gradient(to right, #2C3E50, #4A6491);
+}
+
+.header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.header-separator {
+    -fx-padding: 0;
+    -fx-background-color: -fx-secondary-color;
+}
+
+/* Indicateurs */
+.indicator-label {
+    -fx-text-fill: #BDC3C7;
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+}
+
+.value-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.value-label-savings {
+    -fx-text-fill: #2ECC71;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* Barre d'outils */
+.toolbar {
+    -fx-background-color: -fx-light-color;
+    -fx-padding: 10px;
+    -fx-spacing: 15px;
+}
+
+.toolbar-button {
+    -fx-background-color: -fx-secondary-color;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.toolbar-button:hover {
+    -fx-background-color: #2980B9;
+}
+
+/* Tableau */
+.device-table {
+    -fx-padding: 0 20px 20px 20px;
+}
+
+.table-column {
+    -fx-alignment: CENTER;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #D6EAF8;
+}
+
+/* Graphiques */
+.chart-container {
+    -fx-padding: 20px;
+}
+
+.chart-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-dark-color;
+    -fx-padding: 0 0 10px 0;
+}
+
+.energy-chart {
+    -fx-legend-visible: false;
+}
+
+.chart-series-line {
+    -fx-stroke: -fx-secondary-color;
+    -fx-stroke-width: 2px;
+}
+
+/* Panneaux */
+.suggestion-pane, .settings-pane, .alert-pane {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.suggestion-pane > .title {
+    -fx-background-color: -fx-accent-color;
+}
+
+.settings-pane > .title {
+    -fx-background-color: -fx-secondary-color;
+}
+
+.alert-pane > .title {
+    -fx-background-color: -fx-warning-color;
+}
+
+.suggestion-content, .settings-content, .alert-content {
+    -fx-padding: 15px;
+    -fx-background-color: white;
+}
+
+/* Pied de page */
+.footer {
+    -fx-padding: 0;
+    -fx-spacing: 0;
+}
+
+.status-bar {
+    -fx-background-color: -fx-dark-color;
+    -fx-padding: 5px 15px;
+    -fx-spacing: 10px;
+}
+
+.status-text {
+    -fx-text-fill: #ECF0F1;
+    -fx-font-size: 13px;
+}
+
+.status-indicator-connected {
+    -fx-text-fill: #2ECC71;
+    -fx-font-weight: bold;
+}
+
+.status-indicator-disconnected {
+    -fx-text-fill: -fx-warning-color;
+    -fx-font-weight: bold;
+}
+
+/* Onglets */
+.main-tab-pane {
+    -fx-tab-min-width: 120px;
+}
+
+.main-tab-pane .tab-header-area .tab {
+    -fx-background-color: #EAEDED;
+    -fx-background-radius: 5px 5px 0 0;
+}
+
+.main-tab-pane .tab:selected {
+    -fx-background-color: white;
+    -fx-border-color: #D0D3D4;
+    -fx-border-width: 1px 1px 0 1px;
+}
+
+.main-tab-pane .tab-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Palette de couleurs inspirée de Home Assistant */
+.root {
+    -ha-primary: #03A9F4;
+    -ha-secondary: #607D8B;
+    -ha-accent: #FF9800;
+    -ha-background: #F5F5F5;
+    -ha-card: #FFFFFF;
+    -ha-text: #212121;
+    -ha-text-secondary: #757575;
+    -ha-divider: #E0E0E0;
+    -ha-error: #F44336;
+    -ha-success: #4CAF50;
+    -ha-warning: #FFC107;
+}
+
+/* Styles de base */
+.app-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -ha-text;
+}
+
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -ha-text;
+    -fx-padding: 0 0 10px 0;
+}
+
+/* En-tête */
+.header {
+    -fx-background-color: -ha-primary;
+    -fx-padding: 15px 25px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 0, 2, 0, 0);
+}
+
+.header-icon {
+    -fx-fill: white;
+    -fx-icon-size: 32px;
+}
+
+.metric-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: rgba(255,255,255,0.7);
+}
+
+.metric-value {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.metric-value-savings {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -ha-success;
+}
+
+/* Onglets */
+.main-tab-pane {
+    -fx-background-color: transparent;
+    -fx-tab-min-height: 48px;
+}
+
+.main-tab-pane .tab-header-area {
+    -fx-background-color: -ha-background;
+    -fx-padding: 0 20px;
+}
+
+.main-tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-padding: 0 20px;
+    -fx-font-size: 14px;
+    -fx-text-fill: -ha-text-secondary;
+}
+
+.main-tab-pane .tab:selected {
+    -fx-text-fill: -ha-primary;
+    -fx-font-weight: bold;
+}
+
+.main-tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+/* Cartes */
+.dashboard-container {
+    -fx-padding: 20px;
+    -fx-background-color: -ha-background;
+}
+
+.metric-card, .chart-card, .devices-card {
+    -fx-background-color: -ha-card;
+    -fx-background-radius: 4px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 0, 2, 0, 0);
+}
+
+.metric-card {
+    -fx-pref-width: 200px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.card-title {
+    -fx-font-size: 13px;
+    -fx-text-fill: -ha-text-secondary;
+}
+
+.card-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -ha-text;
+}
+
+.card-subtext {
+    -fx-font-size: 12px;
+    -fx-text-fill: -ha-text-secondary;
+}
+
+/* Tableaux */
+.devices-table, .history-table {
+    -fx-background-color: -ha-card;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 0, 2, 0, 0);
+}
+
+.table-column {
+    -fx-alignment: CENTER;
+    -fx-font-size: 13px;
+}
+
+.devices-table .table-row-cell:even {
+    -fx-background-color: #FAFAFA;
+}
+
+/* Boutons */
+.icon-button {
+    -fx-background-color: -ha-primary;
+    -fx-text-fill: white;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px 12px;
+    -fx-graphic-text-gap: 8px;
+}
+
+.flat-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -ha-primary;
+    -fx-padding: 8px 12px;
+}
+
+.flat-button:hover {
+    -fx-background-color: rgba(3, 169, 244, 0.1);
+}
+
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-padding: 5px 10px;
+}
+
+/* Champs de saisie */
+.search-field, .small-input, .time-input {
+    -fx-background-color: white;
+    -fx-border-color: -ha-divider;
+    -fx-border-width: 1px;
+    -fx-border-radius: 4px;
+    -fx-padding: 8px;
+}
+
+/* Graphiques */
+.energy-chart {
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+
+.chart-series-line {
+    -fx-stroke: -ha-primary;
+    -fx-stroke-width: 2px;
+}
+
+/* Notifications */
+.notifications-pane {
+    -fx-background-color: -ha-card;
+    -fx-border-color: -ha-divider;
+    -fx-border-width: 1px 0 0 0;
+    -fx-padding: 0;
+}
+
+.notifications-header {
+    -fx-padding: 10px 15px;
+    -fx-background-color: #FAFAFA;
+}
+
+.notifications-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.notifications-list {
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+}
+
+.status-indicator {
+    -fx-font-size: 12px;
+    -fx-text-fill: -ha-success;
+}
+
+/* Animation pour les alertes */
+@keyframes pulse {
+    0% { -fx-opacity: 1; }
+    50% { -fx-opacity: 0.7; }
+    100% { -fx-opacity: 1; }
+}
+
+.alert-notification {
+    -fx-background-color: #FFF3E0;
+    -fx-border-color: -ha-warning;
+    -fx-border-width: 0 0 0 3px;
+    -fx-padding: 10px;
+    animation: pulse 2s infinite;
+}

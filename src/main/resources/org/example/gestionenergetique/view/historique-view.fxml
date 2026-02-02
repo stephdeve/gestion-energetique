@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.gestionenergetique.controller.HistoriqueController"
+            stylesheets="@historique.css"
+            prefHeight="600.0" prefWidth="900.0">
+
+    <VBox spacing="20" styleClass="history-container" AnchorPane.topAnchor="25" AnchorPane.leftAnchor="25" AnchorPane.rightAnchor="25" AnchorPane.bottomAnchor="25">
+        <!-- En-tête -->
+        <HBox alignment="CENTER_LEFT" spacing="15" styleClass="header-box">
+            <FontAwesomeIconView glyphName="HISTORY" size="28" styleClass="header-icon"/>
+            <VBox spacing="2">
+                <Label text="Historique de Consommation" styleClass="header-title"/>
+                <Label text="Visualisation des données énergétiques" styleClass="header-subtitle"/>
+            </VBox>
+        </HBox>
+
+        <!-- Barre de filtres -->
+        <HBox spacing="15" alignment="CENTER_LEFT" styleClass="filter-box">
+            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="search-box">
+                <FontAwesomeIconView glyphName="SEARCH" size="16" styleClass="search-icon"/>
+                <TextField fx:id="searchField" styleClass="search-field" promptText="Rechercher un appareil..."/>
+            </HBox>
+
+            <HBox spacing="10" alignment="CENTER_LEFT" styleClass="date-filter-box">
+                <Label text="Période:" styleClass="filter-label"/>
+                <DatePicker fx:id="dateDebutPicker" styleClass="date-picker" promptText="Date de début"/>
+                <Label text="à" styleClass="filter-label"/>
+                <DatePicker fx:id="dateFinPicker" styleClass="date-picker" promptText="Date de fin"/>
+                <Button text="Appliquer" onAction="#onFiltre" styleClass="filter-button"/>
+            </HBox>
+        </HBox>
+
+        <!-- Tableau d'historique -->
+        <TableView fx:id="tableHistorique" styleClass="history-table">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" styleClass="table-column" prefWidth="80"/>
+                <TableColumn fx:id="colAppareil" text="APPAREIL" styleClass="table-column" prefWidth="180"/>
+                <TableColumn fx:id="colDate" text="DATE" styleClass="table-column" prefWidth="150"/>
+                <TableColumn fx:id="colDuree" text="DURÉE (h)" styleClass="table-column numeric-column" prefWidth="100"/>
+                <TableColumn fx:id="colTotal" text="CONSO (kWh)" styleClass="table-column numeric-column" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>
